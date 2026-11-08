@@ -1,0 +1,28 @@
+{
+  "name": "ai-fullstack-lab",
+  "private": true,
+  "version": "0.1.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "workspaces": [
+    "apps/web"
+  ],
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "generate": "node scripts/contracts.mjs write",
+    "contracts:check": "node scripts/contracts.mjs check",
+    "check": "npm run contracts:check && npm run typecheck -w apps/web && npm run lint -w apps/web && npm run test:api && npm run build -w apps/web",
+    "test:api": "cd apps/api && go test -race ./... && go vet ./...",
+    "test:e2e": "playwright test",
+    "agent:plan": "python3 scripts/agent_flow.py --task specs/examples/task-priority.md",
+    "agent:run": "python3 scripts/agent_flow.py --task specs/examples/task-priority.md --execute"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.65.0",
+    "openapi-typescript": "7.13.0",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "16.4.5",
+    "typescript": "^5.9.0"
+  }
+}

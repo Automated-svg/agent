@@ -1,0 +1,4 @@
+interface:
+  display_name: "api-contract-sync"
+  short_description: "AI 全栈实验室：契约、实现与联调的项目专属工作流程"
+  default_prompt: "使用 $api-contract-sync 完成当前工程中对应的开发或验证任务。"

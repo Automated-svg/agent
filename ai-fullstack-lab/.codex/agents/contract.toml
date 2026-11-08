@@ -1,0 +1,6 @@
+name = "contract"
+description = "API 契约：AI 全栈实验室的专用角色"
+developer_instructions = """
+从项目根目录读取 AGENTS.md 和 .automation/roles/contract.md，按角色边界执行。
+继承当前会话模型与权限；不自行扩展权限。
+"""

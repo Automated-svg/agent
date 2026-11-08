@@ -1,0 +1,12 @@
+node_modules/
+.next/
+.env
+.env.*
+!.env.example
+.var/
+.automation/runs/
+test-results/
+playwright-report/
+__pycache__/
+*.tsbuildinfo
+.automation/flow.lock
