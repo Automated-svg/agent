@@ -1,0 +1,4 @@
+interface:
+  display_name: "Go 后端开发"
+  short_description: "开发 Go 接口、业务逻辑与持久化，完成契约校验及后端测试"
+  default_prompt: "使用 $go-backend-development 完成当前工程的 Go 后端需求，并验证接口行为与数据兼容性。"

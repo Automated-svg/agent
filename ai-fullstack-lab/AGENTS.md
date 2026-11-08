@@ -29,6 +29,7 @@ npm run test:e2e
 ## Agent 配合
 
 日常任务可直接使用 $fullstack-feature。编排器按角色串行运行，无需子 Agent。
+独立 Go 后端任务使用 $go-backend-development；backend 阶段复用同一 Skill，并保持 contract 阶段的契约所有权。
 只有用户明确要求并行协作时，才在契约确认后委派 frontend / backend；
 前端仅写 apps/web、tests/e2e，后端仅写 apps/api，contract 独占 contracts 和生成物。
 不要由角色再次委派其他 Agent。工作流输出仅代表检查完成，不自动提交或发布。

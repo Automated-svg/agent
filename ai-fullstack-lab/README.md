@@ -20,7 +20,7 @@
 | 本地开发 | 一个命令启动两端，协调代理地址，并在退出时清理服务进程 |
 | AI 开发编排 | 分阶段 CLI 会话、结构化结果、进度记录、超时与失败停止 |
 | 工程验收 | 契约漂移检查、静态分析、Go race 测试、生产构建、真实浏览器联调 |
-| 交付配置 | 项目规则、3 个 Skill、5 个 Agent 角色、CI、Dockerfile 与 Compose |
+| 交付配置 | 项目规则、4 个 Skill、5 个 Agent 角色、CI、Dockerfile 与 Compose |
 
 ## 快速开始
 
@@ -214,6 +214,7 @@ Skill 定义可复用的开发方法，角色指令定义阶段职责，`AGENTS.
 |---|---|---|
 | 项目规则 | [AGENTS.md](AGENTS.md) | 开发边界、契约约束、验收命令 |
 | 跨端功能 Skill | [.agents/skills/fullstack-feature/](.agents/skills/fullstack-feature/SKILL.md) | `$fullstack-feature` |
+| Go 后端开发 Skill | [.agents/skills/go-backend-development/](.agents/skills/go-backend-development/SKILL.md) | `$go-backend-development` |
 | 契约同步 Skill | [.agents/skills/api-contract-sync/](.agents/skills/api-contract-sync/SKILL.md) | `$api-contract-sync` |
 | 交付验收 Skill | [.agents/skills/fullstack-verify/](.agents/skills/fullstack-verify/SKILL.md) | `$fullstack-verify` |
 | 阶段职责 | `.automation/roles/*.md` | 编排器直接读取 |
@@ -226,6 +227,8 @@ Skill 定义可复用的开发方法，角色指令定义阶段职责，`AGENTS.
 ```
 
 CLI 流水线直接读取阶段指令，不依赖子 Agent 功能；交互式自定义角色的可用性取决于本机 Codex 版本与项目配置的信任状态。配置不绑定模型、不包含密钥，也不修改用户全局设置。
+
+仅开发后端时，可输入“使用 `$go-backend-development` 实现任务优先级的后端能力，覆盖旧数据兼容、非法输入和持久化测试”。流水线的 `backend` 角色也会读取该 Skill；若上游契约不满足需求，会返回 `blocked`，需修正契约后重新执行。
 
 ## 质量门禁
 

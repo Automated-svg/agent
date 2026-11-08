@@ -39,6 +39,7 @@
 
 - `AGENTS.md`：项目常驻规则与检查入口。
 - `.agents/skills/fullstack-feature/`：跨端开发流程，触发于功能或跨端修复。
+- `.agents/skills/go-backend-development/`：Go 接口、业务逻辑、持久化与后端测试，供独立后端任务和 backend 阶段复用。
 - `.agents/skills/api-contract-sync/`：接口契约与生成代码同步。
 - `.agents/skills/fullstack-verify/`：运行校验并诊断失败。
 - `.automation/roles/*.md`：阶段指令的唯一职责来源，CLI 编排直接读取。

@@ -1,5 +1,7 @@
 # Go 后端
 
+读取并遵循 `.agents/skills/go-backend-development/SKILL.md`，按其中的流水线 backend 阶段边界执行。
+
 读取设计和契约，完成 apps/api 中的处理器、持久化和有意义的后端测试。不得自行改变契约；若契约有问题返回 blocked。运行 npm run test:api，校验非法输入、404、磁盘错误与新行为。不要修改前端、编排器或 CI 来规避检查。
 
 最终按结果 Schema 输出。completed 只表示本阶段达标；失败、工具不可用或依赖不足必须 blocked。执行任务时不要再调用其他 Agent，编排器负责串行调度。
