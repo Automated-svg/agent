@@ -63,7 +63,8 @@ npm run dev
 内置需求为“任务优先级”：新增优先级字段、前端选择与展示、后端校验，以及旧数据兼容。该需求留作后续实践，尚未预先实现。
 
 ```bash
-# 在 ai-fullstack-lab 目录中执行
+# 从agent目录执行；已进入ai-fullstack-lab时跳过cd
+cd ai-fullstack-lab
 npm run agent:plan  # 预览阶段，不调用模型、不修改代码
 npm run agent:run   # 调用本机 Codex，按阶段实现并验收需求
 ```
@@ -103,3 +104,11 @@ agent/
 2026-11-08 的搭建验证已通过完整质量门禁、2 条浏览器用例、7 项编排器测试和 3 个 Skill 校验。真实模型开发链路与 Docker 构建尚未执行，详见验证记录。
 
 当前定位为单进程本地开发与 AI 工程实践基线。认证、多租户、数据库、分页和生产部署需按实际业务补充；JSON 存储不支持多个后端进程共享写入。CI 配置保存在子项目中，作为独立仓库使用时可直接生效；保留当前目录结构时需接入仓库根目录的 workflow。
+
+<!-- BEGIN chovy-readme-review -->
+## 目录边界与维护入口
+
+当前目录是导航层，实际npm工作区、Go模块和自动化入口均位于ai-fullstack-lab。不要在agent目录直接执行npm ci或把子工程的apps路径当作当前目录路径。
+
+改动受[工程AGENTS.md](ai-fullstack-lab/AGENTS.md)约束；服务端和前端接入分别见[Go API](ai-fullstack-lab/apps/api/README.md)与[Web应用](ai-fullstack-lab/apps/web/README.md)。本轮只核对文档与配置，原有门禁数字属于历史记录，未重复执行模型或服务端流程。
+<!-- END chovy-readme-review -->

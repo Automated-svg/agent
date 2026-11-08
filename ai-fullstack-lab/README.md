@@ -296,3 +296,11 @@ GitHub Actions 配置位于 `.github/workflows/ci.yml`，运行确定性检查�
 | [验证记录](docs/validation.md) | 实际验证结果、已修正问题及使用边界 |
 | [API 契约](contracts/openapi.yaml) | 请求、响应、状态码和 Schema |
 | [需求示例](specs/examples/task-priority.md) | 下一轮完整 AI 开发实践 |
+
+<!-- BEGIN chovy-readme-review -->
+## 子工程入口核对
+
+前端使用说明见[apps/web/README.md](apps/web/README.md)，后端见[apps/api/README.md](apps/api/README.md)。开发编排、生成与完整门禁应从本目录执行，单独启动子服务时需显式对齐API_ORIGIN、ADDR和DATA_FILE。
+
+本轮README检查没有执行生成器、修改契约或运行模型；文中的搭建验证结果仍指向原验证记录。根目录.env不由开发编排器自动加载，避免仅复制变量文件却未把变量注入启动进程。
+<!-- END chovy-readme-review -->
