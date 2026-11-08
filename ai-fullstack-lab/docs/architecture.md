@@ -57,7 +57,11 @@ specs/examples/           可直接执行的业务需求
 | 联调 | Playwright + 真实 Go | 覆盖浏览器、Next rewrite、HTTP、持久化路径 |
 | AI | Codex CLI + Python 标准库编排 | 复用本机登录、结构化结果、日志和超时控制 |
 
-具体依赖版本由 package-lock.json、go.mod / go.sum 锁定；生成器在脚本中固定版本。初次生成器下载仍需网络。Next.js rewrite 的机制依据[官方文档](https://nextjs.org/docs/app/api-reference/config/next-config-js/rewrites)，Go 严格接口依据 [oapi-codegen](https://github.com/oapi-codegen/oapi-codegen)。
+具体依赖版本由 package-lock.json、go.mod / go.sum 锁定；生成器在脚本中固定版本。
+
+根 package.json 将 @typescript-eslint/typescript-estree 的 minimatch 限定覆盖为 11.0.5，处理上游仍依赖受影响 10.x 的情况；依据 [GHSA-g3hv-75wg-m249](https://github.com/advisories/GHSA-g3hv-75wg-m249)。这是局部工具依赖覆盖，升级 typescript-eslint 后应重新评估是否移除；本次通过 ESLint 与构建验证兼容性。
+
+初次生成器下载仍需网络。Next.js rewrite 的机制依据[官方文档](https://nextjs.org/docs/app/api-reference/config/next-config-js/rewrites)，Go 严格接口依据 [oapi-codegen](https://github.com/oapi-codegen/oapi-codegen)。
 
 ## 前后端自动对接如何落地
 

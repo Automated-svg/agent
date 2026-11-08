@@ -14,6 +14,7 @@ export default defineConfig({
     command: "npm run dev",
     url: "http://127.0.0.1:3100",
     reuseExistingServer: false,
+    gracefulShutdown: { signal: "SIGTERM", timeout: 5000 },
     timeout: 120_000,
     env: { WEB_PORT: "3100", API_PORT: "8181", DATA_FILE: dataFile, NEXT_TELEMETRY_DISABLED: "1" },
   },

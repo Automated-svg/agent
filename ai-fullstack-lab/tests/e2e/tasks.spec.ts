@@ -23,5 +23,5 @@ test("通过 Next.js 代理完成任务全生命周期，并在刷新后保留",
 test("API 不可用时向用户显示错误", async ({ page }) => {
   await page.route("**/api/v1/tasks", route => route.fulfill({ status: 503, contentType: "application/json", body: JSON.stringify({ code: "unavailable", message: "Unavailable" }) }));
   await page.goto("/");
-  await expect(page.getByRole("alert")).toContainText("无法加载任务");
+  await expect(page.getByRole("region", { name: "任务工作区" }).getByRole("alert")).toContainText("无法加载任务");
 });
