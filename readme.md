@@ -8,6 +8,17 @@
 
 > 当前实现采用 Next.js + Go。Rust 后端替换方案已记录在架构文档中，尚未提供第二套后端实现。
 
+<!-- BEGIN project-discovery -->
+## 项目定位与实践入口
+
+AI Agent development workflows with Next.js, Go, OpenAPI and Codex, plus an EVM smart-money wallet flow monitor. AI 全栈开发实战与多链资金流监控、定时采集和本地日报。
+
+适合从以下入口阅读实现与接入条件：
+
+- [AI 全栈开发工程](ai-fullstack-lab/README.md)
+- [Go 多链资金流监控](smart-money-agent/README.md)
+<!-- END project-discovery -->
+
 ## 核心能力
 
 - **完整业务链路**：任务创建、列表、状态更新、删除与本地文件持久化。
