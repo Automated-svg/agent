@@ -58,3 +58,7 @@
 ## 官方依据
 
 [项目 Skills 发现目录](https://learn.chatgpt.com/docs/build-skills)、[自定义 Agent TOML](https://learn.chatgpt.com/docs/agent-configuration/subagents)、[非交互模式与结构化结果](https://learn.chatgpt.com/docs/non-interactive-mode)。本机 Codex 0.167.0 的 exec 帮助已确认支持 --sandbox、--output-schema、--output-last-message 和 --json；模型与认证状态由执行环境决定。
+
+## 统一门禁的检查范围
+
+npm run check现在先执行test:tooling与test:automation，再运行原有契约一致性、TypeScript、ESLint、Go race/vet和生产构建。编排器的verify阶段继续调用同一个check与test:e2e，因此脚本与编排控制回归也成为每次交付的确定性检查；测试使用隔离目录和模拟阶段，不会在门禁里启动真实模型流水线。

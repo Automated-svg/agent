@@ -12,11 +12,13 @@
     "dev": "node scripts/dev.mjs",
     "generate": "node scripts/contracts.mjs write",
     "contracts:check": "node scripts/contracts.mjs check",
-    "check": "npm run contracts:check && npm run typecheck -w apps/web && npm run lint -w apps/web && npm run test:api && npm run build -w apps/web",
+    "check": "npm run test:tooling && npm run test:automation && npm run contracts:check && npm run typecheck -w apps/web && npm run lint -w apps/web && npm run test:api && npm run build -w apps/web",
     "test:api": "cd apps/api && go test -race ./... && go vet ./...",
     "test:e2e": "playwright test",
     "agent:plan": "python3 scripts/agent_flow.py --task specs/examples/task-priority.md",
-    "agent:run": "python3 scripts/agent_flow.py --task specs/examples/task-priority.md --execute"
+    "agent:run": "python3 scripts/agent_flow.py --task specs/examples/task-priority.md --execute",
+    "test:tooling": "node --test tests/tooling/*.test.mjs",
+    "test:automation": "python3 -m unittest discover -s tests/automation -v"
   },
   "devDependencies": {
     "@playwright/test": "1.65.0",

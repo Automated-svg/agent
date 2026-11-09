@@ -5,10 +5,13 @@ import (
 	"encoding/hex"
 	"encoding/json"
 	"errors"
+	"fmt"
 	"os"
 	"path/filepath"
+	"strings"
 	"sync"
 	"time"
+	"unicode/utf8"
 
 	"example.com/ai-fullstack-lab/api/internal/api"
 )
@@ -36,6 +39,26 @@ func Open(path string) (*Store, error) {
 	}
 	if s.items == nil {
 		s.items = []api.Task{}
+	}
+	seen := make(map[string]bool, len(s.items))
+	for index, item := range s.items {
+		field := ""
+		switch {
+		case strings.TrimSpace(item.Id) == "":
+			field = "id"
+		case seen[item.Id]:
+			field = "duplicate id"
+		case strings.TrimSpace(item.Title) == "" || utf8.RuneCountInString(item.Title) > 120:
+			field = "title"
+		case item.Status != api.Todo && item.Status != api.Doing && item.Status != api.Done:
+			field = "status"
+		case item.CreatedAt.IsZero():
+			field = "createdAt"
+		}
+		if field != "" {
+			return nil, fmt.Errorf("stored task %d has invalid %s", index, field)
+		}
+		seen[item.Id] = true
 	}
 	return s, nil
 }
