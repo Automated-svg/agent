@@ -1,4 +1,4 @@
-# AI Fullstack Lab
+# AI Fullstack Labs
  
 **基于 Next.js、Go 和 OpenAPI 的 AI 自动化全栈开发实践工程。**
 
